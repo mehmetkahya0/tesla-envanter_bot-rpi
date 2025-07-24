@@ -4,11 +4,8 @@ slug: tesla_envanter_bot
 description: Tesla Türkiye araç envanter takip botu
 url: https://github.com/mehmetkahya0/tesla-envanter_bot-rpi
 arch:
-  - armhf
-  - armv7
   - aarch64
   - amd64
-  - i386
 init: false
 options:
   telegram_bot_token: ""
@@ -26,4 +23,3 @@ schema:
   models: [str]
 startup: services
 stage: stable
-image: ghcr.io/mehmetkahya0/tesla-envanter_bot-rpi
