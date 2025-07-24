@@ -22,8 +22,8 @@ docker buildx create --name tesla-bot-builder --use 2>/dev/null || true
 docker buildx build \
     --platform linux/amd64,linux/arm64,linux/arm/v7 \
     --build-arg BUILD_FROM=${BUILD_FROM} \
-    --tag ghcr.io/mehmetkahya/tesla-envanter-bot:latest \
-    --tag ghcr.io/mehmetkahya/tesla-envanter-bot:1.0.0 \
+    --tag ghcr.io/mehmetkahya0/tesla-envanter-bot:latest \
+    --tag ghcr.io/mehmetkahya0/tesla-envanter-bot:1.0.0 \
     ${DOCKER_PUSH:+--push} \
     .
 

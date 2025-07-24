@@ -17,7 +17,7 @@ Tesla Türkiye araç envanterini takip eden Home Assistant add-on'u. Yeni araçl
 Home Assistant'ta **Supervisor > Add-on Store > ⋮ > Repositories**'den bu repository'yi ekleyin:
 
 ```
-https://github.com/mehmetkahya/tesla-envanter-bot-rpi
+https://github.com/mehmetkahya0/tesla-envanter_bot-rpi
 ```
 
 ### 2. Telegram Bot Oluşturma
