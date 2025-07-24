@@ -2,12 +2,12 @@ ARG BUILD_FROM=alpine:3.19
 FROM $BUILD_FROM
 
 # Install Python and required packages
-RUN apk add --no-cache 
-    python3 
-    py3-pip 
-    py3-setuptools 
-    py3-wheel 
-    tzdata 
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    py3-setuptools \
+    py3-wheel \
+    tzdata \
     curl
 
 # Set working directory
