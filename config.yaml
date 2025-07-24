@@ -1,0 +1,31 @@
+name: Tesla Envanter Bot
+version: "1.0.0"
+slug: tesla_envanter_bot
+description: Tesla Türkiye araç envanter takip botu
+url: https://github.com/mehmetkahya/tesla-envanter-bot-rpi
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+options:
+  telegram_bot_token: ""
+  telegram_chat_id: ""
+  check_interval: 300
+  models: 
+    - "Model 3"
+    - "Model Y"
+    - "Model S"
+    - "Model X"
+schema:
+  telegram_bot_token: str
+  telegram_chat_id: str
+  check_interval: int(30,3600)
+  models: [str]
+ports:
+  8080/tcp: null
+startup: services
+stage: stable
+image: ghcr.io/mehmetkahya/tesla-envanter-bot-{arch}
