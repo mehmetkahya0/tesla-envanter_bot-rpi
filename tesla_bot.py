@@ -8,10 +8,15 @@ from telegram import Bot
 from telegram.error import TelegramError
 import asyncio
 from datetime import datetime
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Configure logging
+log_level = logging.DEBUG if os.getenv('DEBUG', 'false').lower() == 'true' else logging.INFO
 logging.basicConfig(
-    level=logging.INFO,
+    level=log_level,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
@@ -22,13 +27,15 @@ class TeslaInventoryBot:
         self.chat_id = os.getenv('TELEGRAM_CHAT_ID')
         self.check_interval = int(os.getenv('CHECK_INTERVAL', 300))
         self.models = json.loads(os.getenv('MODELS', '["Model 3", "Model Y"]'))
+        self.tesla_url = os.getenv('TESLA_URL', 'https://www.tesla.com/tr_tr/inventory/new')
+        self.data_dir = os.getenv('DATA_DIR', '/app/data')
         
         self.bot = Bot(token=self.telegram_token)
         self.last_vehicles = set()
-        self.data_file = '/app/data/last_inventory.json'
+        self.data_file = os.path.join(self.data_dir, 'last_inventory.json')
         
         # Create data directory
-        os.makedirs('/app/data', exist_ok=True)
+        os.makedirs(self.data_dir, exist_ok=True)
         
         # Load last known inventory
         self.load_last_inventory()
@@ -67,7 +74,7 @@ class TeslaInventoryBot:
             }
             
             # Tesla Turkey inventory URL
-            url = "https://www.tesla.com/tr_tr/inventory/new"
+            url = self.tesla_url
             
             response = requests.get(url, headers=headers, timeout=30)
             response.raise_for_status()

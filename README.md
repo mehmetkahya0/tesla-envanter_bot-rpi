@@ -31,7 +31,25 @@ https://github.com/mehmetkahya/tesla-envanter-bot-rpi
 1. [@userinfobot](https://t.me/userinfobot)'a mesaj gönderin
 2. Chat ID'nizi kaydedin
 
-### 4. Add-on Konfigürasyonu
+### 4. Geliştirme/Test için .env Dosyası Oluşturma
+
+Local geliştirme için:
+
+```bash
+cp .env.example .env
+nano .env
+```
+
+.env dosyasını kendi değerlerinizle doldurun:
+```env
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+TELEGRAM_CHAT_ID=your_chat_id_here
+CHECK_INTERVAL=300
+MODELS=["Model 3", "Model Y", "Model S", "Model X"]
+DEBUG=false
+```
+
+### 5. Add-on Konfigürasyonu
 
 ```yaml
 telegram_bot_token: "YOUR_BOT_TOKEN_HERE"
@@ -55,10 +73,23 @@ models:
 
 ## Kullanım
 
+### Home Assistant Add-on Olarak
+
 1. Add-on'u yapılandırın
 2. "Start" butonuna tıklayın
 3. Telegram'dan başlangıç mesajını bekleyin
 4. Bot otomatik olarak envanteri kontrol etmeye başlayacak
+
+### Local Test
+
+```bash
+# .env dosyasını oluşturun ve doldurun
+cp .env.example .env
+nano .env
+
+# Test script'ini çalıştırın
+./test.sh
+```
 
 ## Log Takibi
 
