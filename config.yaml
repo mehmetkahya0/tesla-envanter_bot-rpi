@@ -23,4 +23,4 @@ schema:
   models: [str]
 startup: services
 stage: stable
-image: ghcr.io/mehmetkahya0/tesla-envanter_bot-rpi
+image: ghcr.io/mehmetkahya0/tesla-envanter-bot
