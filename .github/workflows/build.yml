@@ -47,7 +47,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            BUILD_FROM=ghcr.io/home-assistant/base:latest
+            BUILD_FROM=alpine:3.19
 
   addon-build:
     runs-on: ubuntu-latest

@@ -1,18 +1,14 @@
-ARG BUILD_FROM=ghcr.io/home-assistant/base:latest
+ARG BUILD_FROM=alpine:3.19
 FROM $BUILD_FROM
 
 # Install Python and required packages
-RUN \
-    apk add --no-cache \
-        python3 \
-        python3-dev \
-        py3-pip \
-        gcc \
-        musl-dev \
-        libffi-dev \
-        openssl-dev \
-    && python3 -m ensurepip \
-    && pip3 install --upgrade pip
+RUN apk add --no-cache 
+    python3 
+    py3-pip 
+    py3-setuptools 
+    py3-wheel 
+    tzdata 
+    curl
 
 # Set working directory
 WORKDIR /app
